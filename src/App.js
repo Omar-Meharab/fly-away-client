@@ -2,6 +2,7 @@ import './App.css';
 import Homepage from './components/Homepage/Homepage';
 import Booking from './components/Booking/Booking';
 import Login from './components/Login/Login';
+import AddDestinations from './components/AddDestinations/AddDestinations';
 import {
   BrowserRouter as Router,
   Switch,
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/addDestinations">
+            <AddDestinations />
           </Route>
         </Switch>
       </div>
