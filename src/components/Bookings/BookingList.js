@@ -4,7 +4,7 @@ const BookingList = (props) => {
     const { name, price, destination } = props.bookings;
 
     const deleteBook = (id) => {
-        fetch(`http://localhost:5000/deleteBooking/${id}`, {
+        fetch(`https://whispering-spire-74091.herokuapp.com/deleteBooking/${id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())

@@ -24,7 +24,7 @@ const CheckOut = () => {
             ...orderData,
             paymentId
         };
-        fetch('http://localhost:5000/addBooking', {
+        fetch('https://whispering-spire-74091.herokuapp.com/addBooking', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(order)
@@ -39,7 +39,7 @@ const CheckOut = () => {
         history.push(`/bookings`);
     }
 
-    fetch(`http://localhost:5000/destinations/${id}`)
+    fetch(`https://whispering-spire-74091.herokuapp.com/destinations/${id}`)
     .then(res => res.json())
     .then(data => setDestination(data))
     

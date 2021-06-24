@@ -13,7 +13,7 @@ const AddDestinations = () => {
             price: data.price,
             imageURL: imageURL
         };
-        const url = `http://localhost:5000/addDestinations`
+        const url = `https://whispering-spire-74091.herokuapp.com/addDestinations`
         fetch(url, {
             method: 'POST',
             headers: {

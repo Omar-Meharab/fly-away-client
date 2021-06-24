@@ -43,7 +43,7 @@ const Login = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="row d-flex align-items-center mx-5">
+            <div className="row d-flex align-items-center m-5">
                 <div className="col-md-4 my-5 offset-1 bg-light p-5">
                     <h1>Login Now</h1>
                     <button className="btn btn-primary" onClick={handleGoogleSignIn}>Google Sign in</button>
