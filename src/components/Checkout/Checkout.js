@@ -4,14 +4,14 @@ import { useForm } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router-dom';
 import { UserContext } from '../../App';
 import ProcessPayment from '../ProcessPayment/ProcessPayment';
-import Sidebar from '../Dashboard/Sidebar/Sidebar';
+import Navbar from '../Navbar/Navbar';
 
 
 const CheckOut = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const [orderData, setOrderData] = useState(null);
     const { id } =useParams();
-    const [service, setService] = useState({});
+    const [destination, setDestination] = useState({});
     const history = useHistory();
 
     const onSubmit = data => {
@@ -24,7 +24,7 @@ const CheckOut = () => {
             ...orderData,
             paymentId
         };
-        fetch('https://vast-hollows-78144.herokuapp.com/addOrder', {
+        fetch('http://localhost:5000/addBooking', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(order)
@@ -36,38 +36,38 @@ const CheckOut = () => {
                     alert('your order placed successfully');
                 }
             })
-        history.push(`/orders`);
+        history.push(`/bookings`);
     }
 
-    fetch(`https://vast-hollows-78144.herokuapp.com/service/${id}`)
+    fetch(`http://localhost:5000/destinations/${id}`)
     .then(res => res.json())
-    .then(data => setService(data))
+    .then(data => setDestination(data))
     
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     return (
         <section>
-            <Sidebar></Sidebar>
-            <div className="col-md-10 col-sm-10 ms-auto checkout">
+            <Navbar />
+            <div className="checkout text-center">
                 <div style={{display: orderData ? 'none' : 'block'}} className="col-md-6 col-sm-6 mx-auto pt-5">
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <input name="name" defaultValue={loggedInUser.name} {...register("name", { required: true })} placeholder="name" />
                         {errors.exampleRequired && <span className="error">Name is required</span>}
-
+                        <br />
                         <input name="email" defaultValue={loggedInUser.email} {...register("email", { required: true })} placeholder="email" />
-                        {errors.exampleRequired && <span className="error">Name is required</span>}
-                        
-                        <input name="service" defaultValue={service.service} {...register("service", { required: true })} placeholder="service" />
-                        {errors.exampleRequired && <span className="error">Name is required</span>}
-                        
-                        <input name="price" defaultValue={service.price} {...register("price", { required: true })} placeholder="price" />
-                        {errors.exampleRequired && <span className="error">Name is required</span>}
-
+                        {errors.exampleRequired && <span className="error">Email is required</span>}
+                        <br />
+                        <input name="destination" defaultValue={destination.name} {...register("destination", { required: true })} placeholder="destination" />
+                        {errors.exampleRequired && <span className="error">Destination is required</span>}
+                        <br />
+                        <input name="price" defaultValue={destination.price} {...register("price", { required: true })} placeholder="price" />
+                        {errors.exampleRequired && <span className="error">Price is required</span>}
+                        <br />
                         <input name="address" {...register("address", { required: true })} placeholder="address" />
-                        {errors.exampleRequired && <span className="error">Name is required</span>}
-
+                        {errors.exampleRequired && <span className="error">Address is required</span>}
+                        <br />
                         <input name="phone" {...register("phone", { required: true })} placeholder="phone" />
-                        {errors.exampleRequired && <span className="error">Name is required</span>}
-
+                        {errors.exampleRequired && <span className="error">Phone Number is required</span>}
+                        <br />
                         <input className="btn btn-primary" type="submit" />
                     </form>
                 </div>
