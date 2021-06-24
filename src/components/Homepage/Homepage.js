@@ -8,7 +8,7 @@ const Homepage = () => {
         <div>
             <Navbar></Navbar>
             <div>
-                <h1 className="text-center p-5 m-5">What Is Your Destination</h1>
+                <h1 className="text-center p-5">What Is Your Destination</h1>
             </div>
             <Destinations></Destinations>
         </div>

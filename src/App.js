@@ -3,6 +3,7 @@ import Homepage from './components/Homepage/Homepage';
 import Booking from './components/Booking/Booking';
 import Login from './components/Login/Login';
 import AddDestinations from './components/AddDestinations/AddDestinations';
+import Checkout from './components/Checkout/Checkout';
 import {
   BrowserRouter as Router,
   Switch,
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route path="/addDestinations">
             <AddDestinations />
+          </Route>
+          <Route path="/checkout/:id">
+            <Checkout />
           </Route>
         </Switch>
       </div>
