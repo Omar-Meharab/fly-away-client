@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
+import Navbar from '../Navbar/Navbar';
 
 const AddDestinations = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -41,7 +42,8 @@ const AddDestinations = () => {
     }
 
     return (
-        <section className="">
+        <section>
+            <Navbar />
             <div className="mx-auto col-md-10 col-sm-10 text-center my-5 py-5">
                 <div className="container">
                     <div className="section-header text-center text-white mb-5">

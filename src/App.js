@@ -2,6 +2,7 @@ import './App.css';
 import Homepage from './components/Homepage/Homepage';
 import Bookings from './components/Bookings/Bookings';
 import Login from './components/Login/Login';
+import Seats from './components/Seats/Seats';
 import AddDestinations from './components/AddDestinations/AddDestinations';
 import Checkout from './components/Checkout/Checkout';
 import PrivateRoute from './components/Login/PrivateRoute';
@@ -26,15 +27,18 @@ function App() {
           <Route exact path="/">
             <Homepage />
           </Route>
+          <Route path="/seats">
+            <Seats />
+          </Route>
           <PrivateRoute path="/bookings">
             <Bookings />
           </PrivateRoute>
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/addDestinations">
+          <PrivateRoute path="/addDestinations">
             <AddDestinations />
-          </Route>
+          </PrivateRoute>
           <PrivateRoute path="/checkout/:id">
             <Checkout />
           </PrivateRoute>
