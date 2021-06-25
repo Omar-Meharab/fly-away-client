@@ -6,7 +6,7 @@ const Seats = () => {
         <div>
             <div class="plane">
                 <div class="cockpit">
-                    <h1>Please select your seat</h1>
+                    <h1>Please select your seats</h1>
                 </div>
                 <div class="exit exit--front fuselage">
 

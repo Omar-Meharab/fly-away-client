@@ -52,25 +52,39 @@ const CheckOut = () => {
                 <div className="col-md-6 mt-5 pt-5 text-center">
                     <div style={{ display: orderData ? 'none' : 'block' }} className="col-md-6 col-sm-6 mx-auto pt-5">
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <input name="name" defaultValue={loggedInUser.name} {...register("name", { required: true })} placeholder="name" />
-                            {errors.exampleRequired && <span className="error">Name is required</span>}
+                            <input className="m-1 px-5 py-1" name="name" defaultValue={loggedInUser.name} {...register("name", { required: true })} placeholder="name" />
                             <br />
-                            <input name="email" defaultValue={loggedInUser.email} {...register("email", { required: true })} placeholder="email" />
-                            {errors.exampleRequired && <span className="error">Email is required</span>}
+                            {errors.name && <span className="bg-danger text-white">Name is required</span>}
                             <br />
-                            <input name="destination" defaultValue={destination.name} {...register("destination", { required: true })} placeholder="destination" />
-                            {errors.exampleRequired && <span className="error">Destination is required</span>}
+                            <input className="m-1 px-5 py-1" name="email" defaultValue={loggedInUser.email} {...register("email", { required: true })} placeholder="email" />
                             <br />
-                            <input name="price" defaultValue={destination.price} {...register("price", { required: true })} placeholder="price" />
-                            {errors.exampleRequired && <span className="error">Price is required</span>}
+                            {errors.email && <span className="bg-danger text-white">Email is required</span>}
                             <br />
-                            <input name="address" {...register("address", { required: true })} placeholder="address" />
-                            {errors.exampleRequired && <span className="error">Address is required</span>}
+                            <input className="m-1 px-5 py-1" name="destination" defaultValue={destination.name} {...register("destination", { required: true })} placeholder="destination" />
                             <br />
-                            <input name="phone" {...register("phone", { required: true })} placeholder="phone" />
-                            {errors.exampleRequired && <span className="error">Phone Number is required</span>}
+                            {errors.destination && <span className="bg-danger text-white">Destination is required</span>}
                             <br />
-                            <input className="btn btn-primary" type="submit" />
+                            <input className="m-1 px-5 py-1" name="price" defaultValue={destination.price} {...register("price", { required: true })} placeholder="price" />
+                            <br />
+                            {errors.price && <span className="bg-danger text-white">Price is required</span>}
+                            <br />
+                            <input className="m-1 px-5 py-1" name="Amount of seats" {...register("amountOfSeats", { required: true, max: 5 })} placeholder="amount of seats" />
+                            <br />
+                            {errors.amountOfSeats && <span className="bg-danger text-white">No more than 5 seats can be taken</span>}
+                            <br />
+                            <input className="m-1 px-5 py-1" name="total" {...register("total", { required: true })} placeholder="total" />
+                            <br />
+                            {errors.total && <span className="bg-danger text-white">Total is required</span>}
+                            <br />
+                            <input className="m-1 px-5 py-1" name="address" {...register("address", { required: true })} placeholder="address" />
+                            <br />
+                            {errors.address && <span className="bg-danger text-white">Address is required</span>}
+                            <br />
+                            <input className="m-1 px-5 py-1" name="phone" {...register("phone", { required: true })} placeholder="phone" />
+                            <br />
+                            {errors.phone && <span className="bg-danger text-white">Phone Number is required</span>}
+                            <br />
+                            <input className="m-1 px-5 py-1" className="btn btn-primary" type="submit" />
                         </form>
                     </div>
                     <div style={{ display: orderData ? 'block' : 'none' }} className="col-md-6 col-sm-6 mx-auto py-5 payment-container">
