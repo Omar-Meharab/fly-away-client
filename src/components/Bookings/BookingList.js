@@ -1,7 +1,7 @@
 import React from 'react';
 
 const BookingList = (props) => {
-    const { name, price, destination } = props.bookings;
+    const { name, price, destination, amountOfSeats } = props.bookings;
 
     const deleteBook = (id) => {
         fetch(`https://whispering-spire-74091.herokuapp.com/deleteBooking/${id}`, {
@@ -15,6 +15,7 @@ const BookingList = (props) => {
         <tr>
             <td>{name}</td>
             <td>{destination}</td>
+            <td>{amountOfSeats}</td>
             <td>{price}</td>
             <td><button onClick={() => deleteBook(props.bookings._id)} className="btn btn-danger">Delete</button></td>
         </tr>

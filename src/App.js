@@ -39,9 +39,9 @@ function App() {
           <PrivateRoute path="/addDestinations">
             <AddDestinations />
           </PrivateRoute>
-          <Route path="/checkout/:id">
+          <PrivateRoute path="/checkout/:id">
             <Checkout />
-          </Route>
+          </PrivateRoute>
         </Switch>
       </div>
     </Router>

@@ -32,7 +32,6 @@ const CheckOut = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data) {
                     alert('your order placed successfully');
                 }
@@ -56,7 +55,7 @@ const CheckOut = () => {
                             <br />
                             {errors.name && <span className="bg-danger text-white">Name is required</span>}
                             <br />
-                            <input className="m-1 px-5 py-1" name="email" defaultValue={loggedInUser.email} {...register("email", { required: true })} placeholder="email" />
+                            <input className="m-1 px-5 py-1" name="email" defaultValue={loggedInUser.email} {...register("email", { required: true, pattern: /^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/ })} placeholder="email" />
                             <br />
                             {errors.email && <span className="bg-danger text-white">Email is required</span>}
                             <br />
@@ -71,10 +70,6 @@ const CheckOut = () => {
                             <input className="m-1 px-5 py-1" name="Amount of seats" {...register("amountOfSeats", { required: true, max: 5 })} placeholder="amount of seats" />
                             <br />
                             {errors.amountOfSeats && <span className="bg-danger text-white">No more than 5 seats can be taken</span>}
-                            <br />
-                            <input className="m-1 px-5 py-1" name="total" {...register("total", { required: true })} placeholder="total" />
-                            <br />
-                            {errors.total && <span className="bg-danger text-white">Total is required</span>}
                             <br />
                             <input className="m-1 px-5 py-1" name="address" {...register("address", { required: true })} placeholder="address" />
                             <br />

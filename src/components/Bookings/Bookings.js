@@ -21,6 +21,7 @@ const Bookings = () => {
                         <tr>
                             <th scope="col">Name</th>
                             <th scope="col">Destination</th>
+                            <th scope="col">Seats</th>
                             <th scope="col">Price</th>
                             <th scope="col">Action</th>
                         </tr>
