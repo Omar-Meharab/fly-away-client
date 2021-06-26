@@ -1,6 +1,6 @@
 # Retro Madness
 
-This project was uses tail wind css with [Live Site](https://fly-away-37546.web.app/).
+A ticket booking web application. Click to check live site [Live Site](https://fly-away-37546.web.app/).
 
 ## About the project
 
